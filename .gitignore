@@ -1,0 +1,18 @@
+secretxyz123.php
+
+# exclude everything
+photos/*
+# exception to the rule
+!photos/.gitkeep 
+
+# exclude everything
+icons/*
+# exception to the rule
+!icons/.gitkeep 
+
+# exclude everything
+easter/*
+# exception to the rule
+!easter/.gitkeep 
+
+sql/

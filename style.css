@@ -1,0 +1,668 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+/*index */
+.bg {
+    /* The image used */
+
+
+    /* Full height */
+    height: 100vh;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.ancre-bg {
+    cursor: none;
+}
+
+.bg:hover #cursor {
+    position: absolute;
+    background: #000;
+    opacity: .4;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    top: 50%;
+    left: 50%;
+    animation: pulse .5s cubic-bezier(.51, 0, 0.4, .5) alternate infinite;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+@keyframes pulse {
+    from {
+        width: 50px;
+        height: 50px;
+    }
+
+    to {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+#cursor.active {
+    animation: bounce .5s ease;
+}
+
+@keyframes bounce {
+
+    100% {
+        transform: translate(-50%, -50%) scale(2);
+        opacity: 0;
+    }
+
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+/*---end keyframes
+
+/*index : affichage en hover de la description --------------- */
+
+/*boutons next et previous  */
+
+.zindex999 {
+    z-index: 999;
+}
+
+.description {
+    display: none;
+}
+
+.hover-description {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    width: 50%;
+}
+
+.hover-description p,
+text-desc-full {
+    text-align: center;
+    padding-top: 15px;
+}
+
+.image-container .image {
+    position: relative;
+}
+
+.image-container .image:hover .hover-description {
+    visibility: visible;
+
+}
+
+/* index : filtrage des photos ------------ */
+
+.filter {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+#boutons-filtrage button {
+    color: #000;
+}
+
+#boutons-filtrage button:hover {
+    color: #000;
+}
+
+
+/* NAVBAR */
+
+/* test scroll apparition */
+
+.scroll-down {
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.scroll-up {
+    opacity: 1;
+    transition: 0.5s;
+}
+
+@media (min-width : 768px) {
+    .scroll-up:not(.menu-open) {
+        background: rgba(255, 255, 255, 0.695);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
+        transition: 0.5s;
+    }
+
+}
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+.header-title {
+    color: rgb(120, 120, 120);
+    letter-spacing: 5px;
+    margin-bottom: 50px;
+}
+
+.navbar-container {
+    width: 100vw;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.695);
+}
+
+
+.navbar-container ul {
+    margin-left: 70px;
+    margin-right: 70px;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    height: 43px;
+}
+
+.navbar-container ul a {
+    text-decoration: none;
+}
+
+
+
+.navbar-link {
+    margin-top: 10px;
+}
+
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    color: black;
+
+}
+
+.hover-underline-animation:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    top: 25px;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* ---------------------- */
+
+/* footer */
+
+
+
+.container-footer {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-right: auto;
+    margin-left: auto;
+    height: 30px;
+    width: 95vw;
+    position: fixed;
+    bottom: 0;
+}
+
+.container-footer img {
+    max-width: 20px;
+}
+
+.container-footer a img {
+    transition: 0.2s;
+}
+
+.container-footer a img:hover {
+    max-width: 30px;
+}
+
+/* ----- */
+
+
+.container {
+    position: relative;
+    min-height: 100vh;
+    width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+    margin-top: 100px;
+}
+
+.container-index {
+    margin-top: 0 !important;
+}
+
+
+
+.container .image-container .image {
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.container .image-container .image img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    transition: 0.2s;
+    padding: 10px;
+}
+
+.container .image-container .image:hover img {
+    transform: scale(1.1);
+}
+
+.container h1 {
+    font-size: 40px;
+    font-weight: normal;
+    padding: 15px;
+    color: #333;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.container .popup-image,
+.easter-egg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .9);
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+    display: none;
+}
+
+.container .popup-image img,
+.easter-egg img {
+    max-width: 1000px;
+    max-height: 100vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: contain;
+}
+
+.container .popup-image span,
+.easter-egg span {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    font-size: 40px;
+    font-weight: bolder;
+    color: #fff;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.clue {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .container .popup-image img {
+        width: 95%;
+    }
+
+    .clue {
+        display: block;
+        font-size: 8px;
+    }
+
+}
+
+@media (min-width : 768px) {
+    .container .image-container {
+        gap: 15px;
+        justify-content: center;
+
+        line-height: 0;
+
+        -webkit-column-count: 5;
+        -webkit-column-gap: 0px;
+        -moz-column-count: 5;
+        -moz-column-gap: 0px;
+        column-count: 3;
+        column-gap: 5px;
+    }
+}
+
+/* ADMIN */
+
+.container .image-container-admin {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container .image-container-admin .image img {
+    max-width: 388px;
+    margin-left: auto;
+}
+
+.update-image {
+    max-width: 388px;
+}
+
+.list-admin {
+    display: flex;
+    align-items: center;
+}
+
+.list-admin-options {
+    display: flex;
+    justify-content: end;
+}
+
+.list-admin-options a {
+
+    text-decoration: none;
+    color: red;
+}
+
+.card-ajout-valide a {
+
+    text-decoration: none;
+}
+
+/* A PROPOS */
+.about-container {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.about-text {
+    margin-top: 40px;
+    text-align: right;
+}
+
+.about-image {
+    max-width: 600px;
+}
+
+.about-title-container {
+    margin-left: 70%;
+}
+
+.about-title {
+    text-align: right !important;
+    padding: 0 !important;
+}
+
+.about-title::after {
+
+    content: "";
+    display: block;
+    width: 150px;
+    padding-top: 1px;
+    margin-left: 35px;
+    border-bottom: 1px solid black;
+
+}
+
+.margintop {
+    margin-top: 80px;
+}
+
+.card-about {
+    border: none !important;
+}
+
+.card-about-links {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-about-links a {
+    text-decoration: none;
+    color: black;
+}
+
+/* cursor bg index */
+
+
+
+/* ------- */
+
+@media (min-width : 768px) {
+
+    .card-about-text {
+        margin-left: 20%;
+    }
+}
+
+@media (max-width : 768px) {
+
+    .card-about-links {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+/* navbar-mobile */
+
+@media (min-width : 768px) {
+
+    .navbar-mobile {
+        display: none;
+    }
+
+    .index-mobile-titre {
+        display: none;
+    }
+}
+
+@media (max-width : 768px) {
+    .navbar-container {
+        visibility: hidden;
+    }
+
+    footer {
+        display: none;
+    }
+
+    .container {
+        margin-top: 20px;
+    }
+
+    .navbar-mobile {
+        position: fixed;
+        z-index: 999;
+    }
+
+    .navbar-mobile #menu img {
+        max-width: 20px;
+        margin-left: 47%;
+        margin-right: 50%;
+    }
+
+    .navbar-mobile #menu a img {
+        transition: 0.2s;
+    }
+
+    .navbar-mobile #menu a img:hover {
+        max-width: 30px;
+    }
+
+    .scroll-up {
+        /* no background for the toggle menu when scrolling up */
+        background: none;
+        transition: 0.5s;
+    }
+
+    .bg {
+        display: none;
+    }
+
+    #menuToggle {
+        display: block;
+        position: relative;
+        top: 20px;
+        left: 10px;
+
+        z-index: 1;
+
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+    #menuToggle a {
+        text-decoration: none;
+        color: #232323;
+
+        transition: color 0.3s ease;
+    }
+
+    #menuToggle a:hover {
+        color: tomato;
+    }
+
+
+    #menuToggle input {
+        display: block;
+        width: 40px;
+        height: 32px;
+        position: absolute;
+        top: -7px;
+        left: -5px;
+
+        cursor: pointer;
+
+        opacity: 0;
+        /* hide this */
+        z-index: 2;
+        /* and place it over the hamburger */
+
+        -webkit-touch-callout: none;
+    }
+
+    /*
+ * Just a quick hamburger
+ */
+    #menuToggle span {
+        display: block;
+        width: 33px;
+        height: 4px;
+        margin-bottom: 5px;
+        position: relative;
+
+        background: #cdcdcd;
+        border-radius: 3px;
+
+        z-index: 1;
+
+        transform-origin: 4px 0px;
+
+        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+            background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+            opacity 0.55s ease;
+    }
+
+    #menuToggle span:first-child {
+        transform-origin: 0% 0%;
+    }
+
+    #menuToggle span:nth-last-child(2) {
+        transform-origin: 0% 100%;
+    }
+
+    /* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+    #menuToggle input:checked~span {
+        opacity: 1;
+        transform: rotate(45deg) translate(-2px, -1px);
+        background: #232323;
+    }
+
+    /*
+ * But let's hide the middle one.
+ */
+    #menuToggle input:checked~span:nth-last-child(3) {
+        opacity: 0;
+        transform: rotate(0deg) scale(0.2, 0.2);
+    }
+
+    /*
+ * Ohyeah and the last one should go the other direction
+ */
+    #menuToggle input:checked~span:nth-last-child(2) {
+        transform: rotate(-45deg) translate(0, -1px);
+    }
+
+    /*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+    #menu {
+        position: absolute;
+        width: 120vw;
+        margin: -100px 0 0 -203px;
+        padding: 50px;
+        padding-top: 250px;
+        height: 120vh;
+        background: #edededbd;
+        list-style-type: none;
+        -webkit-font-smoothing: antialiased;
+        /* to stop flickering of text in safari */
+
+        transform-origin: 0% 0%;
+        transform: translate(-100%, 0);
+
+        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+    }
+
+
+
+    #menu li {
+
+        font-size: 22px;
+        margin-bottom: 60px;
+        text-align: center;
+
+
+    }
+
+
+
+
+
+    /*
+ * And let's slide it in from the left
+ */
+    #menuToggle input:checked~ul {
+        transform: none;
+    }
+}
